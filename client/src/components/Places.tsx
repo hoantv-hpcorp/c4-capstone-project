@@ -146,11 +146,11 @@ export class Places extends React.PureComponent<PlacesProps, PlacesState> {
           <Form onSubmit={ this.onPlaceFormSubmit }>
             <Form.Field>
               <label>Place Name</label>
-              <Input placeholder="Input place name" onChange={this.handleNameChange} />
+              <Input placeholder="Input place name" onChange={this.handleNameChange}  />
             </Form.Field>
             <Form.Field>
               <label>Place Description</label>
-              <Input placeholder="Input place name" onChange={this.handleDescriptionChange} />
+              <Input placeholder="Input place description" onChange={this.handleDescriptionChange} />
             </Form.Field>
             <Button type='submit'>Submit</Button>
           </Form>
