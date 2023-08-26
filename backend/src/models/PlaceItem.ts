@@ -1,9 +1,8 @@
-export interface TodoItem {
+export interface PlaceItem {
   userId: string
-  todoId: string
+  placeId: string
   createdAt: string
   name: string
-  dueDate: string
-  done: boolean
+  description: string
   attachmentUrl?: string
 }

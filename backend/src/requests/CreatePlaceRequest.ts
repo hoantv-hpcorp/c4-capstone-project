@@ -1,10 +1,9 @@
 /**
  * Fields in a request to create a single TODO item.
  */
-export interface CreateTodoRequest {
+export interface CreatePlaceRequest {
   name: string
-  dueDate: string
-  done: boolean
+  description: string
   createdAt: string
   attachmentUrl: string
 }

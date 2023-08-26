@@ -4,25 +4,15 @@
   "type": "object",
   "properties": {
     "name": {
-      "type": "string",
-      "minLength": 1
-    },
-    "dueDate": {
       "type": "string"
     },
-    "done": {
-      "type": "boolean"
-    },
-    "createdAt": {
-      "type": "string"
-    },
-    "attachmentUrl": {
+    "description": {
       "type": "string"
     }
   },
   "required": [
     "name",
-    "dueDate"
+    "description"
   ],
   "additionalProperties": false
 }

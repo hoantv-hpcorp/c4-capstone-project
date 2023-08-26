@@ -10,10 +10,10 @@ const bucketName = process.env.ATTACHMENT_S3_BUCKET
 const urlExpiration = process.env.SIGNED_URL_EXPIRATION
 
 // TODO: Implement the fileStogare logic
-export function generatePreUrl(todoId: string) {
+export function generatePreUrl(placeId: string) {
   return s3.getSignedUrl('putObject', {
     Bucket: bucketName,
-    Key: todoId,
+    Key: placeId,
     Expires: Number(urlExpiration)
   })
 }

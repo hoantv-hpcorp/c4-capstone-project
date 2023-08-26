@@ -1,27 +1,27 @@
 import { apiEndpoint } from '../config'
-import { Todo } from '../types/Todo';
-import { CreateTodoRequest } from '../types/CreateTodoRequest';
+import { Place } from '../types/Place';
+import { CreatePlaceRequest } from '../types/CreatePlaceRequest';
 import Axios from 'axios'
-import { UpdateTodoRequest } from '../types/UpdateTodoRequest';
+import { UpdatePlaceRequest } from '../types/UpdatePlaceRequest';
 
-export async function getTodos(idToken: string): Promise<Todo[]> {
-  console.log('Fetching todos')
+export async function getPlaces(idToken: string): Promise<Place[]> {
+  console.log('Fetching places')
 
-  const response = await Axios.get(`${apiEndpoint}/todos`, {
+  const response = await Axios.get(`${apiEndpoint}/places`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${idToken}`
     },
   })
-  console.log('Todos:', response.data)
+  console.log('Places:', response.data)
   return response.data.items
 }
 
-export async function createTodo(
+export async function createPlace(
   idToken: string,
-  newTodo: CreateTodoRequest
-): Promise<Todo> {
-  const response = await Axios.post(`${apiEndpoint}/todos`,  JSON.stringify(newTodo), {
+  newPlace: CreatePlaceRequest
+): Promise<Place> {
+  const response = await Axios.post(`${apiEndpoint}/places`,  JSON.stringify(newPlace), {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${idToken}`
@@ -30,12 +30,12 @@ export async function createTodo(
   return response.data.item
 }
 
-export async function patchTodo(
+export async function patchPlace(
   idToken: string,
-  todoId: string,
-  updatedTodo: UpdateTodoRequest
+  placeId: string,
+  updatedPlace: UpdatePlaceRequest
 ): Promise<void> {
-  await Axios.patch(`${apiEndpoint}/todos/${todoId}`, JSON.stringify(updatedTodo), {
+  await Axios.patch(`${apiEndpoint}/places/${placeId}`, JSON.stringify(updatedPlace), {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${idToken}`
@@ -43,11 +43,11 @@ export async function patchTodo(
   })
 }
 
-export async function deleteTodo(
+export async function deletePlace(
   idToken: string,
-  todoId: string
+  placeId: string
 ): Promise<void> {
-  await Axios.delete(`${apiEndpoint}/todos/${todoId}`, {
+  await Axios.delete(`${apiEndpoint}/places/${placeId}`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${idToken}`
@@ -57,9 +57,9 @@ export async function deleteTodo(
 
 export async function getUploadUrl(
   idToken: string,
-  todoId: string
+  placeId: string
 ): Promise<string> {
-  const response = await Axios.post(`${apiEndpoint}/todos/${todoId}/attachment`, '', {
+  const response = await Axios.post(`${apiEndpoint}/places/${placeId}/attachment`, '', {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${idToken}`
