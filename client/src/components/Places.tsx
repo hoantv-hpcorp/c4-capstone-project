@@ -174,7 +174,7 @@ export class Places extends React.PureComponent<PlacesProps, PlacesState> {
     return (
       <Grid.Row>
         <Loader indeterminate active inline="centered">
-          Loading TODOs
+          Loading PLACES
         </Loader>
       </Grid.Row>
     )
